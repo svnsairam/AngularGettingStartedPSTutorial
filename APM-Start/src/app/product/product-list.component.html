@@ -45,9 +45,9 @@
                         [style.margin.px]= 'imageMargin'>
                 </td>
                 <td>{{myProducts.productName}}</td>
-                <td>{{myProducts.productCode}}</td>
+                <td>{{myProducts.productCode | lowercase}}</td>
                 <td>{{myProducts.releaseDate}}</td>
-                <td>{{myProducts.price}}</td>
+                <td>{{myProducts.price | currency:'USD':'symbol':'1.2-2'}}</td>
                 <td>{{myProducts.starRating}}</td>
             </tr>
           </tbody>
