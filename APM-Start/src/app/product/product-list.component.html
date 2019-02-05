@@ -1,0 +1,56 @@
+<div class='card'>
+    <div class='card-header'>
+      {{productPageTitle}}
+    </div>
+    <div class='card-body'>
+      <div class='row'>
+        <div class='col-md-2'>Filter by:</div>
+        <div class='col-md-4'>
+          <input type='text' />
+        </div>
+      </div>
+      <div class='row'>
+                 <div class='col-md-6'>
+          <h4>Filtered by: </h4>
+        </div>
+      </div>
+      <div class='table-responsive'>
+        <table class='table'
+        *ngIf = 'products && products.length'>  <!--If products array is empty then table is not displayed-->
+          <thead>
+            <tr>
+              <th>
+                <button class='btn btn-primary'
+                  (click)='toggleImage()'>           <!--toggleImage() method is used to toggle showImage variable upon button click-->
+                    {{showImage? 'Hide':'Show'}} Image  <!--If showImage is true then we disply Hide Image text on 
+                                                        button else if showImage is false then we display
+                                                        Show Image text on button -->
+                </button>
+              </th>
+              <th>Product</th>
+              <th>Code</th>
+              <th>Available</th>
+              <th>Price</th>
+              <th>5 Star Rating</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor='let myProducts of products'>
+                <td>                   <!-- *ngIf 'showImage' if its true then show the images else Hide the images-->
+                  <img *ngIf = 'showImage'             
+                        [src] = 'myProducts.imageUrl'
+                        [title] = 'myProducts.productName'
+                        [style.width.px]= 'imageWidth'
+                        [style.margin.px]= 'imageMargin'>
+                </td>
+                <td>{{myProducts.productName}}</td>
+                <td>{{myProducts.productCode}}</td>
+                <td>{{myProducts.releaseDate}}</td>
+                <td>{{myProducts.price}}</td>
+                <td>{{myProducts.starRating}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
