@@ -8,6 +8,7 @@ export class ProductListComponent{
     imageWidth: number = 50;
     imageMargin: number =2;
     showImage: boolean = false;
+    listFilter:string='cart';
     products: any[] =  [  // We use any[] in TS if we don't know what  data type to use
             {
               "productId": 1,
