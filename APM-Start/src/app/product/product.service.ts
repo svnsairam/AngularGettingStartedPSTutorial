@@ -1,7 +1,10 @@
 import { Injectable } from "@angular/core";
 import { IProduct } from "./product";
 
-@Injectable()
+@Injectable({
+    providedIn: 'root' // We are registering the service to root injector.
+                       // So this service can be used by any component present in Angular Appli
+})
 export class ProductService{
     // this method is used to return the products
     // it's return type is IProduct[] array
