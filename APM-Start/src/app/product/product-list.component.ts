@@ -41,4 +41,10 @@ export class ProductListComponent implements OnInit{
         throw new Error("Method not implemented.");
       console.log("I am onInit method");
       }
+      // this method is called when ever an output form child component is sent to parent component
+      // In this method we are just changing the productPageTitle property by appending the message 
+      // that came from the child component.
+      onRatingClicked(message: string): void{
+        this.productPageTitle = 'Product List :'+ message;
+      }
 }
