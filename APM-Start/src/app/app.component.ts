@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Sairam PluralS Angular: Getting Started';
+  pageTitle = 'Sairam PluralS Angular: Getting Started';
 }
