@@ -7,6 +7,7 @@ import { StarComponent } from './shared/star.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductDetailComponent } from './product/product-detail.component';
 import { WelcomeComponent } from './home/welcome.component';
+import {RouterModule} from '@angular/router';
 @NgModule({
   // declarations are our own Components
   //that we created for our project.
@@ -22,7 +23,15 @@ import { WelcomeComponent } from './home/welcome.component';
   imports: [
     BrowserModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule.forRoot([
+      {path: 'products',        component:  ProductListComponent},
+      {path: 'products/:id',    component:  ProductDetailComponent},
+      {path: 'welcome',         component:  WelcomeComponent},
+      {path: '', redirectTo: 'welcome', pathMatch:'full'},
+      {path: '**', redirectTo: 'welcome', pathMatch:'full'},
+      
+    ])
   ],
   bootstrap: [AppComponent]
 })
