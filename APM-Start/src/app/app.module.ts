@@ -4,6 +4,7 @@ import {FormsModule} from '@angular/forms';
 import { AppComponent } from './app.component';
 import { ProductListComponent } from './product/product-list.component';
 import { StarComponent } from './shared/star.component';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   // declarations are our own Components
   //that we created for our project.
@@ -16,7 +17,8 @@ import { StarComponent } from './shared/star.component';
   // These are Angular Modules or third party modules
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   bootstrap: [AppComponent]
 })

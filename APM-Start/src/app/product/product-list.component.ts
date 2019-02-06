@@ -16,6 +16,7 @@ export class ProductListComponent implements OnInit{
     imageMargin: number =2;
     showImage: boolean = false;
     listFilter:string='cart';
+    errorMessage : string;
     products: IProduct[] ;
       toggleImage():void {
         this.showImage = !this.showImage;
@@ -26,8 +27,10 @@ export class ProductListComponent implements OnInit{
         //productService.getProducts() method returns the products we need
         // So we can remove the hardcoding above
         console.log("on init");
-
-        this.products = this.productService.getProducts();
+        this.productService.getProducts().subscribe(
+          products => this.products = products,
+          error => this.errorMessage = <any> error
+        );
       }
       // this method is called when ever an output form child component is sent to parent component
       // In this method we are just changing the productPageTitle property by appending the message 
